@@ -1,0 +1,29 @@
+:root {
+    --light-orange: #e98024;
+    --dark-orange: #eb6424;
+    --light-blue: #204184;
+    --dark-blue: #1b1c4d;
+    --purple: #82565f;
+    --div-border: 5px solid ;
+}
+
+header {
+    display: inline-flex;
+}
+
+.content {
+    display: flex;
+    justify-content: space-around;
+}
+
+.left-side {
+    border: var(--div-border);
+    width: 45%;
+    height: auto;
+}
+
+.right-side {
+    border: var(--div-border);
+    width: 45%;
+    height: auto;
+}
