@@ -1,17 +1,18 @@
 :root {
+    --white: #e7e7e7;
     --light-orange: #e98024;
     --dark-orange: #eb6424;
     --light-blue: #204184;
     --dark-blue: #1b1c4d;
     --purple: #82565f;
-    --div-border: 5px solid ;
+    --div-border: 5px solid #eb6424;
 }
 
 /* Dark Mode */
 .dark {
-    background-color:#243447;
+    background-color: var(--dark-blue);
     height: 100vh;
-    color: #bebebe
+    color: var(--white);
 }
 
 /* Light Mode */
@@ -41,7 +42,6 @@ header {
 }
 
 .right-side {
-    display: flex;
     border: var(--div-border);
     width: 45%;
     height: auto;
@@ -72,5 +72,20 @@ img {
     };
     100% {
         opacity: 1.0;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .content {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .left-side {
+        width: 100%;
+    }
+
+    .right-side {
+        width: 100%;
     }
 }
