@@ -1,24 +1,24 @@
 // Light & Dark mode toggle
-    // Access toggle switch HTML element
-    const themeSwitcher = document.querySelector('#mode-switch');
-    const setMode = document.querySelector('.set-mode');
+// Access toggle switch HTML element
+const themeSwitcher = document.querySelector('#mode-switch');
+const setMode = document.querySelector('.set-mode');
 
-    // Set default mode to dark
-    let mode = 'dark';
+// Set default mode to dark
+let mode = 'dark';
 
-    // Listen for a click event on toggle switch
-    themeSwitcher.addEventListener('click', function () {
-        // If mode is dark, apply light background
-        if (mode === 'dark') {
-        mode = 'light';
-        setMode.setAttribute('class', 'light');
-        }
-        // If mode is light, apply dark background
-        else {
-            mode = 'dark';
-            setMode.setAttribute('class', 'dark');
-        }
-    });
+// Listen for a click event on toggle switch
+themeSwitcher.addEventListener('click', function () {
+    // If mode is dark, apply light background
+    if (mode === 'dark') {
+    mode = 'light';
+    setMode.setAttribute('class', 'light');
+    }
+    // If mode is light, apply dark background
+    else {
+        mode = 'dark';
+        setMode.setAttribute('class', 'dark');
+    }
+});
 
 // Album art for automatic carousel
 const albumArt = [
@@ -56,3 +56,21 @@ function changeImage() {
 
 changeImage();
 setInterval(changeImage, 8000);
+
+// Collecting blog post information
+const nameInput = document.querySelector('#name');
+const songInput = document.querySelector('#song-url');
+const explanationInput = document.querySelector('#explanation');
+const submitButton = document.querySelector('#submit-btn');
+
+submitButton.addEventListener('click', function (event) {
+    event.preventDefault();
+    // Turning inputs into blog post object
+    const blogPost = {
+        name: nameInput.value.trim(),
+        songURL: songInput.value.trim(),
+        explanation: explanationInput.value.trim(),
+    };
+
+    localStorage.setItem('blogPost', JSON.stringify(blogPost));
+});

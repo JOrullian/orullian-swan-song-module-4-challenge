@@ -1,4 +1,4 @@
-# Orullian-My-Blog-Module-4-Challenge
+# Orullian-Swan-Song-Module-4-Challenge
 
 ## Citations
 ### Color Palettes

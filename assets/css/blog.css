@@ -1,14 +1,30 @@
 :root {
+    --white: #e7e7e7;
     --light-orange: #e98024;
     --dark-orange: #eb6424;
     --light-blue: #204184;
     --dark-blue: #1b1c4d;
     --purple: #82565f;
-    --div-border: 5px solid ;
+    --div-border: 5px solid #eb6424;
+}
+
+/* Dark Mode */
+.dark {
+    background-color: var(--dark-blue);
+    height: 100vh;
+    color: var(--white);
+}
+
+/* Light Mode */
+.light {
+    background-color: #f0ead6;
+    color: black;
+    height: 100vh;
 }
 
 header {
     display: inline-flex;
+    width: 100%;
 }
 
 .content {
@@ -17,13 +33,27 @@ header {
 }
 
 .left-side {
+    display: flex;
+    flex-direction: column;
     border: var(--div-border);
     width: 45%;
-    height: auto;
+    height: 80vh;
+    align-items: center;
+    justify-content: space-around;
+}
+
+article {
+    width: 90%;
+    height: 100px;
+    border: var(--div-border)
 }
 
 .right-side {
+    display: flex;
+    flex-direction: column;
     border: var(--div-border);
     width: 45%;
-    height: auto;
+    height: 80vh;
+    align-items: center;
+    justify-content: space-around;
 }
