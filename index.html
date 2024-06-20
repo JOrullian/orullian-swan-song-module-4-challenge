@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/css/reset.css">
+    <link rel="stylesheet" href="./assets/css/styles.css">
+    <link rel="stylesheet" href="./assets/css/form.css">
+    <title>Document</title>
+</head>
+<body class="set-mode dark">
+    <!-- header and navbar -->
+    <header>
+        <nav>
+            <ul>
+                <li></li>
+                <li></li>
+            </ul>
+            <button id="mode-switch">Mode</button>
+        </nav>
+    </header>
+    <div class="content">
+        <div class="left-side">
+            <form action="" class="form-input">
+                <div class="form-input">
+                    <label for="name">Enter your name:</label>
+                    <input id="name" autocomplete="name" type="text" placeholder="John Doe">
+                </div>
+                <div class="form-input">
+                    <label for="song-url">Enter the song URL:</label>
+                    <input id="song-url" type="text" placeholder="">
+                </div>
+                <div class="form-input">
+                    <label for="explanation">What do you want the world<br>to know about this song?</label>
+                    <input id="explanation" type="text" placeholder="This song made me feel...">
+                </div>
+                <div>
+                    <input type="submit" value="Submit" id="submit-btn">
+                </div>
+            </form>
+        </div>
+        <div class="right-side">
+            <div id="image-container">
+                <img src="" id="slider-image" alt="Slider image">
+            </div>
+        </div>
+    </div>
+    <!-- js script sources -->
+    <script src="./assets/js/logic.js"></script>
+    <script src="./assets/js/form.js"></script>
+</body>
+</html>

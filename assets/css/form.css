@@ -1,0 +1,18 @@
+form {
+    display: table;
+}
+
+.form-input {
+    display: table-row;
+}
+
+label,
+input {
+    display: table-cell;
+    margin: 10px 0 10px 0;
+    text-align: left;
+}
+
+label {
+    padding-right: 30px;
+}

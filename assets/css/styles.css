@@ -1,0 +1,76 @@
+:root {
+    --light-orange: #e98024;
+    --dark-orange: #eb6424;
+    --light-blue: #204184;
+    --dark-blue: #1b1c4d;
+    --purple: #82565f;
+    --div-border: 5px solid ;
+}
+
+/* Dark Mode */
+.dark {
+    background-color:#243447;
+    height: 100vh;
+    color: #bebebe
+}
+
+/* Light Mode */
+.light {
+    background-color: #f0ead6;
+    color: black;
+    height: 100vh;
+}
+
+header {
+    display: inline-flex;
+    width: 100%;
+}
+
+.content {
+    display: flex;
+    justify-content: space-around;
+}
+
+.left-side {
+    display: flex;
+    border: var(--div-border);
+    width: 45%;
+    height: auto;
+    align-items: center;
+    justify-content: center;
+}
+
+.right-side {
+    display: flex;
+    border: var(--div-border);
+    width: 45%;
+    height: auto;
+    align-items: center;
+}
+
+#image-container {
+    width: 100%;
+    height: 100%;
+}
+
+img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+
+.fade-in {
+    animation: img-fade-in 4s;
+}
+
+@keyframes img-fade-in {
+    0% {
+        opacity: 0;
+    };
+    50% {
+        opacity: 0.5;
+    };
+    100% {
+        opacity: 1.0;
+    }
+}
