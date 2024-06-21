@@ -46,31 +46,58 @@ const albumArt = [
     'https://www.billboard.com/wp-content/uploads/2022/03/44.-Whitney-Houston-%E2%80%98Whitney-Houston-1985-album-art-billboard-1240.jpg?w=768',
 ];
 
-let currentIndex = 0;
-
 function changeImage() {
+    let currentIndex = Math.floor(Math.random() * albumArt.length);
     document.getElementById('slider-image').src = albumArt[currentIndex];
     document.getElementById('slider-image').classList.add("fade-in")
-    currentIndex = (currentIndex + 1) % albumArt.length;
+
+    // setTimeout(() => {
+    //     document.getElementById('slider-image').classList.remove("fade-in")
+    //     document.getElementById('slider-image').classList.remove("fade-out")
+
+    // }, 5000)
+
+    console.log(currentIndex);
 }
 
 changeImage();
 setInterval(changeImage, 8000);
 
 // Collecting blog post information
-const nameInput = document.querySelector('#name');
-const songInput = document.querySelector('#song-url');
-const explanationInput = document.querySelector('#explanation');
-const submitButton = document.querySelector('#submit-btn');
 
-submitButton.addEventListener('click', function (event) {
+let blogPosts = [];
+
+function submitBlogPost() {
+    const submitButton = document.querySelector('#submit-btn');
+
+    submitButton.addEventListener('click', function (event) {
     event.preventDefault();
-    // Turning inputs into blog post object
-    const blogPost = {
-        name: nameInput.value.trim(),
-        songURL: songInput.value.trim(),
-        explanation: explanationInput.value.trim(),
+
+    const nameInput = document.querySelector('#name').value;
+    const songInput = document.querySelector('#song-url').value;
+    const explanationInput = document.querySelector('#explanation').value;
+
+    if (nameInput === '' || songInput === '' || explanationInput === '') {
+        alert('Please fill in all fields before submitting.');
+        return;
     };
 
-    localStorage.setItem('blogPost', JSON.stringify(blogPost));
+    const newSubmission = {
+        name: nameInput.trim(),
+        songURL: songInput.trim(),
+        explanation: explanationInput.trim(),
+    };
+
+    blogPosts.unshift(newSubmission);
+
+    if (blogPosts.length > 10) {
+        blogPosts = blogPosts.slice(0, 10);
+    };
+
+    localStorage.setItem('blogPosts', JSON.stringify(blogPosts));
+
+    nameInput
 });
+}
+
+submitBlogPost();

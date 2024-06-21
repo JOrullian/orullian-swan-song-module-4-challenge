@@ -11,8 +11,42 @@ input {
     display: table-cell;
     margin: 10px 0 10px 0;
     text-align: left;
+    font-size: 20px;
+}
+
+#name,
+#song-url {
+    margin-right: 10px;
+}
+
+#explanation-div {
+    margin: 10px 0 10px 0;
+}
+
+#explanation {
+    width: 90%;
+}
+
+#explanation-label {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    margin-top: 20px;
 }
 
 label {
     padding-right: 30px;
+    padding-left: 30px;
+    width: 50%;
 }
+
+.submit-row {
+    display: flex;
+    justify-content: center;
+}
+
+#submit-btn {
+    font-size: 20px;
+    margin-top: 30px;
+}
+

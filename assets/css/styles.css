@@ -25,6 +25,28 @@
 header {
     display: inline-flex;
     width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    height: 90px;
+}
+
+#title {
+    margin-left: 40px;
+    font-size: 60px;
+}
+
+#mode-switch {
+    margin-right: 40px;
+    font-size: 18px;
+}
+
+hr {
+    height: 2px;
+    width: 80%;
+    border-width: 0;
+    color: var(--dark-orange);
+    background-color: var(--dark-orange);
+    margin-bottom: 40px;
 }
 
 .content {
@@ -59,21 +81,18 @@ img {
     height: 100%;
 }
 
-.fade-in {
-    animation: img-fade-in 4s;
+/* .fade-in {
+    animation: img-fade-in 8s linear forwards;
 }
 
 @keyframes img-fade-in {
-    0% {
+    0%, 100% {
         opacity: 0;
-    };
-    50% {
-        opacity: 0.5;
-    };
-    100% {
-        opacity: 1.0;
     }
-}
+    50% {
+        opacity: 1;
+    }
+} */
 
 @media screen and (max-width: 767px) {
     .content {

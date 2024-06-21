@@ -25,6 +25,19 @@
 header {
     display: inline-flex;
     width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    height: 90px;
+}
+
+#title {
+    margin-left: 40px;
+    font-size: 60px;
+}
+
+#mode-switch {
+    margin-right: 40px;
+    font-size: 18px;
 }
 
 .content {
@@ -36,7 +49,7 @@ header {
     display: flex;
     flex-direction: column;
     border: var(--div-border);
-    width: 45%;
+    width: 45vw;
     height: 80vh;
     align-items: center;
     justify-content: space-around;
@@ -52,8 +65,35 @@ article {
     display: flex;
     flex-direction: column;
     border: var(--div-border);
-    width: 45%;
+    width: 45vw;
     height: 80vh;
     align-items: center;
     justify-content: space-around;
+}
+
+.blog-posts {
+    width: 80%;
+    border: var(--div-border);
+    line-height: 150%;
+}
+
+.blog-title {
+    display: flex;
+    align-items: center;
+    text-align: start;
+    font-weight: 900;
+    color: var(--light-orange);
+    font-size: 40px;
+    padding: 0 40px 0 40px;
+}
+
+.blog-content {
+    font-weight: 400;
+    padding: 0 40px 0 40px;
+}
+
+.blog-author {
+    font-weight: 400;
+    text-align: end;
+    padding: 0 40px 0 40px;
 }
