@@ -20,34 +20,51 @@ themeSwitcher.addEventListener('click', function () {
     }
 });
 
-const blogPost1 = document.querySelector('#blog-post-1');
-const blogPost2 = document.querySelector('#blog-post-2');
-const blogPost3 = document.querySelector('#blog-post-3');
-const blogPost4 = document.querySelector('#blog-post-4');
-const blogPost5 = document.querySelector('#blog-post-5');
-const blogPost6 = document.querySelector('#blog-post-6');
-const blogPost7 = document.querySelector('#blog-post-7');
-const blogPost8 = document.querySelector('#blog-post-8');
-const blogPost9 = document.querySelector('#blog-post-9');
-const blogPost10 = document.querySelector('#blog-post-10');
+const storedBlogPost = JSON.parse(localStorage.getItem('blogPosts')) || [];
+const numberOfPosts = storedBlogPost.length;
 
-const storedBlogPost = JSON.parse(localStorage.getItem('blogPost'));
-const nameFrom = storedBlogPost.name;
-const songURLFrom = storedBlogPost.songURL;
-const explanationFrom = storedBlogPost.explanation;
+const leftSide = document.querySelector('.left-side');
+const rightSide = document.querySelector('.right-side');
 
-function renderBlogPost() {
-    const nameP = document.createElement("p");
-    nameP.textContent = `Name: ${nameFrom}`;
-    blogPost1.appendChild(nameP)
+function renderAllBlogPost() {
+    const middleIndex = Math.ceil(numberOfPosts / 2);
+    const firstHalf = storedBlogPost.slice(0, middleIndex);
+    const secondHalf = storedBlogPost.slice(middleIndex);
+    
+    console.log(middleIndex);
+    
+    const createPostElement = post => {
+        const postDiv = document.createElement('div');
+        const postTitle = document.createElement('h2');
+        const postContent = document.createElement('p');
+        const postAuthor = document.createElement('p');
+    
+        postTitle.textContent = post.songURL;
+        postContent.textContent = post.explanation;
+        postAuthor.textContent = post.name;
 
-    const songURLP = document.createElement("p");
-    songURLP.textContent = `Song URL: ${songURLFrom}`;
-    blogPost1.appendChild(songURLP)
+        postDiv.classList.add("blog-posts")
 
-    const explanationP = document.createElement("p");
-    explanationP.textContent = `Explanation: ${explanationFrom}`;
-    blogPost1.appendChild(explanationP)
+        postTitle.classList.add("blog-title");
+        postContent.classList.add("blog-content");
+        postAuthor.classList.add("blog-author");
+    
+        postDiv.appendChild(postTitle);
+        postDiv.appendChild(postContent);
+        postDiv.appendChild(postAuthor);
+    
+        return postDiv;
+    };
+    
+    firstHalf.forEach(post => {
+        const postDiv = createPostElement(post);
+        leftSide.appendChild(postDiv);
+    });
+    
+    secondHalf.forEach(post => {
+        const postDiv = createPostElement(post);
+        rightSide.appendChild(postDiv);
+    });    
 };
 
-renderBlogPost();
+renderAllBlogPost();

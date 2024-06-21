@@ -11,6 +11,7 @@
 <body class="set-mode dark">
     <!-- header and navbar -->
     <header>
+        <div id="title">Swan.Song</div>
         <nav>
             <ul>
                 <li></li>
@@ -19,6 +20,7 @@
             <button id="mode-switch">Mode</button>
         </nav>
     </header>
+    <hr>
     <div class="content">
         <div class="left-side">
             <form action="" class="form-input">
@@ -30,11 +32,9 @@
                     <label for="song-url">Enter the song URL:</label>
                     <input id="song-url" type="text" placeholder="">
                 </div>
-                <div class="form-input">
-                    <label for="explanation">What do you want the world<br>to know about this song?</label>
-                    <input id="explanation" type="text" placeholder="This song made me feel...">
+                <div id="explanation-label"><textarea id="explanation" rows="5" placeholder="This song made me feel..."></textarea>
                 </div>
-                <div>
+                <div class="submit-row">
                     <input type="submit" value="Submit" id="submit-btn">
                 </div>
             </form>
@@ -46,6 +46,7 @@
         </div>
     </div>
     <!-- js script sources -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="./assets/js/logic.js"></script>
     <script src="./assets/js/form.js"></script>
 </body>
