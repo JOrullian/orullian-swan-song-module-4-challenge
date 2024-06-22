@@ -73,6 +73,7 @@ function submitBlogPost() {
     submitButton.addEventListener('click', function (event) {
     event.preventDefault();
 
+    const submitForm = $('form-input');
     const nameInput = document.querySelector('#name').value;
     const songInput = document.querySelector('#song-url').value;
     const explanationInput = document.querySelector('#explanation').value;
@@ -81,6 +82,8 @@ function submitBlogPost() {
         alert('Please fill in all fields before submitting.');
         return;
     };
+
+    console.log(nameInput);
 
     const newSubmission = {
         name: nameInput.trim(),
@@ -96,7 +99,7 @@ function submitBlogPost() {
 
     localStorage.setItem('blogPosts', JSON.stringify(blogPosts));
 
-    nameInput
+    $('.form-input')[0].reset();
 });
 }
 
