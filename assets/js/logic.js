@@ -100,6 +100,7 @@ function submitBlogPost() {
     localStorage.setItem('blogPosts', JSON.stringify(blogPosts));
 
     $('.form-input')[0].reset();
+    window.open('https://jorullian.github.io/orullian-swan-song-module-4-challenge/blog.html', '_self')
 });
 }
 

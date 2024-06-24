@@ -30,6 +30,23 @@ header {
     height: 90px;
 }
 
+ul {
+    display: inline-flex;
+}
+
+.nav-menu {
+    margin-right: 20px;
+}
+
+hr {
+    height: 2px;
+    width: 80%;
+    border-width: 0;
+    color: var(--dark-orange);
+    background-color: var(--dark-orange);
+    margin-bottom: 35px;
+}
+
 #title {
     margin-left: 40px;
     font-size: 60px;
