@@ -14,25 +14,31 @@
         <div id="title">Swan.Song</div>
         <nav>
             <ul>
-                <li></li>
-                <li></li>
+                <li class="nav-menu">Portfolio</li>
+                <li class="nav-menu">Blog</li>
+                <li><button id="mode-switch">Mode</button></li>
             </ul>
-            <button id="mode-switch">Mode</button>
         </nav>
     </header>
+
     <hr>
+    
     <div class="content">
         <div class="left-side">
-            <form action="" class="form-input">
+            <form action="" class="form-input form">
                 <div class="form-input">
                     <label for="name">Enter your name:</label>
                     <input id="name" autocomplete="name" type="text" placeholder="John Doe">
                 </div>
                 <div class="form-input">
-                    <label for="song-url">Enter the song URL:</label>
-                    <input id="song-url" type="text" placeholder="">
+                    <label for="song-name">Enter song name:</label>
+                    <input id="song-name" autocomplete="song" type="text" placeholder="Hey Jude">   
                 </div>
-                <div id="explanation-label"><textarea id="explanation" rows="5" placeholder="This song made me feel..."></textarea>
+                <div class="form-input">
+                    <label for="song-url">Enter the song URL:</label>
+                    <input id="song-url" type="text" placeholder="Link Here">
+                </div>
+                <div id="explanation-label"><textarea id="explanation" placeholder="This song made me feel..." ></textarea>
                 </div>
                 <div class="submit-row">
                     <input type="submit" value="Submit" id="submit-btn">
@@ -45,6 +51,7 @@
             </div>
         </div>
     </div>
+    <footer>Created by Jedediah Craig Orullian</footer>
     <!-- js script sources -->
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="./assets/js/logic.js"></script>

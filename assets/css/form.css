@@ -1,9 +1,23 @@
 form {
     display: table;
+    background-color: var(--light-orange);
+    margin: 20px;
+    border-radius: 20px;
+
+}
+
+textarea {
+    height: 150px;
+    max-height: 300px;
+    min-height: 100px;
+    max-width: 420px;
+    min-width: 420px;
+    border-radius: 5px;
 }
 
 .form-input {
     display: table-row;
+    padding-top: 20px;
 }
 
 label,
@@ -12,6 +26,7 @@ input {
     margin: 10px 0 10px 0;
     text-align: left;
     font-size: 20px;
+    border-radius: 5px;
 }
 
 #name,
@@ -50,3 +65,40 @@ label {
     margin-top: 30px;
 }
 
+@media screen and (max-width: 1024px) {
+    .form-input {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        align-items: center;
+        /* text-align: center; */
+    }
+
+    /* .form needs to overwrite .form-input because the form element on the HTML has both and needs to be set to display flex to be formatted correctly. */
+    .form {
+        display: flex;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 80%;
+    }
+
+    textarea {
+        min-width: 100px;
+        min-height: 100px;
+    }
+
+    #name,
+    #song-name,
+    #song-url {
+        margin: 10px 0 0 0;
+        width: 70%
+    }
+
+    label {
+        text-align: center;
+        width: 100%;
+        font-size: 30px;
+        padding: 0;
+    }
+}
