@@ -1,23 +1,43 @@
+:root {
+    --white: #e7e7e7;
+    --light-orange: #e98024;
+    --dark-orange: #eb6424;
+    --light-blue: #204184;
+    --dark-blue: #1b1c4d;
+    --purple: #82565f;
+    --div-border: 5px solid #eb6424;
+}
+
+/* Fonts */
+@font-face {
+    font-family: Bebas;
+    src: url(../fonts/BebasNeue-Regular.ttf);
+}
+
+@font-face {
+    font-family: Gobold-Bold;
+    src: url(../fonts/Gobold\ Bold.ttf);
+}
+
+@font-face {
+    font-family: Fjalla;
+    src: url(../fonts/FjallaOne-Regular.ttf);
+}
+
+/* Elements in chronological order */
 form {
     display: table;
     background-color: var(--light-orange);
     margin: 20px;
     border-radius: 20px;
-
+    box-shadow: -20px 20px 13px black;
 }
 
-textarea {
-    height: 150px;
-    max-height: 300px;
-    min-height: 100px;
-    max-width: 420px;
-    min-width: 420px;
-    border-radius: 5px;
-}
-
-.form-input {
-    display: table-row;
-    padding-top: 20px;
+label {
+    padding-right: 30px;
+    padding-left: 30px;
+    width: 50%;
+    color: var(--white);
 }
 
 label,
@@ -27,8 +47,30 @@ input {
     text-align: left;
     font-size: 20px;
     border-radius: 5px;
+    font-family: Fjalla, Arial, Helvetica, sans-serif;
 }
 
+textarea {
+    height: 150px;
+    max-height: 300px;
+    min-height: 100px;
+    width: 94%;
+    border-radius: 5px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* classes by chronological order */
+.form-input {
+    display: table-row;
+    padding-top: 20px;
+}
+
+.submit-row {
+    display: flex;
+    justify-content: center;
+}
+
+/* ids by chronological order */
 #name,
 #song-url {
     margin-right: 10px;
@@ -38,10 +80,6 @@ input {
     margin: 10px 0 10px 0;
 }
 
-#explanation {
-    width: 90%;
-}
-
 #explanation-label {
     display: flex;
     width: 100%;
@@ -49,22 +87,12 @@ input {
     margin-top: 20px;
 }
 
-label {
-    padding-right: 30px;
-    padding-left: 30px;
-    width: 50%;
-}
-
-.submit-row {
-    display: flex;
-    justify-content: center;
-}
-
 #submit-btn {
     font-size: 20px;
     margin-top: 30px;
 }
 
+/* Media query for small computer screen sizes and smaller (order of elements, classes and ids are important to correctlly format page) */
 @media screen and (max-width: 1024px) {
     .form-input {
         display: flex;
@@ -84,8 +112,7 @@ label {
     }
 
     textarea {
-        min-width: 100px;
-        min-height: 100px;
+        width: 70%;
     }
 
     #name,

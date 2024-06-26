@@ -12,11 +12,13 @@ themeSwitcher.addEventListener('click', function () {
     if (mode === 'dark') {
     mode = 'light';
     setMode.setAttribute('class', 'light');
+    themeSwitcher.textContent = "🌑"
     }
     // If mode is light, apply dark background
     else {
         mode = 'dark';
         setMode.setAttribute('class', 'dark');
+        themeSwitcher.textContent = "☀️"
     }
 });
 
@@ -46,6 +48,7 @@ const albumArt = [
     'https://www.billboard.com/wp-content/uploads/2022/03/44.-Whitney-Houston-%E2%80%98Whitney-Houston-1985-album-art-billboard-1240.jpg?w=768',
 ];
 
+// Album art cycling
 function changeImage() {
     let currentIndex = Math.floor(Math.random() * albumArt.length);
     document.getElementById('slider-image').src = albumArt[currentIndex];
@@ -63,10 +66,10 @@ function changeImage() {
 changeImage();
 setInterval(changeImage, 8000);
 
+// Grab previous posts from localStorage
+let blogPosts = JSON.parse(localStorage.getItem('blogPosts')) || [];
+
 // Collecting blog post information
-
-let blogPosts = [];
-
 function submitBlogPost() {
     const submitButton = document.querySelector('#submit-btn');
 
@@ -75,32 +78,37 @@ function submitBlogPost() {
 
     const submitForm = $('form-input');
     const nameInput = document.querySelector('#name').value;
+    const songNameInput = document.querySelector('#song-name').value;
     const songInput = document.querySelector('#song-url').value;
     const explanationInput = document.querySelector('#explanation').value;
 
-    if (nameInput === '' || songInput === '' || explanationInput === '') {
+    // Alert if no input in any of the form fields
+    if (nameInput === '' || songInput === '' || explanationInput === '' || songNameInput === '') {
         alert('Please fill in all fields before submitting.');
         return;
     };
 
-    console.log(nameInput);
-
+    // newSubmission object parameters
     const newSubmission = {
         name: nameInput.trim(),
+        songName: songNameInput.trim(),
         songURL: songInput.trim(),
         explanation: explanationInput.trim(),
     };
 
+    // Add newSubmission to blogPosts array
     blogPosts.unshift(newSubmission);
 
+    // Only allow 10 most recent blog posts to occupy array
     if (blogPosts.length > 10) {
         blogPosts = blogPosts.slice(0, 10);
     };
 
     localStorage.setItem('blogPosts', JSON.stringify(blogPosts));
 
+    // Reset form after submission (only needed if the window.open does not target _self)
     $('.form-input')[0].reset();
-    window.open('https://jorullian.github.io/orullian-swan-song-module-4-challenge/blog.html', '_self')
+    window.open("https://jorullian.github.io/orullian-swan-song-module-4-challenge/blog.html", "_self")
 });
 }
 
