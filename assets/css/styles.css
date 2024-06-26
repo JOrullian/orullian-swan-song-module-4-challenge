@@ -8,28 +8,45 @@
     --div-border: 5px solid #eb6424;
 }
 
+/* Fonts */
+@font-face {
+    font-family: Bebas;
+    src: url(../fonts/BebasNeue-Regular.ttf);
+}
+
+@font-face {
+    font-family: Gobold-Bold;
+    src: url(../fonts/Gobold\ Bold.ttf);
+}
+
+@font-face {
+    font-family: Fjalla;
+    src: url(../fonts/FjallaOne-Regular.ttf);
+}
+
 /* Dark Mode */
 .dark {
     background-color: var(--dark-blue);
     height: 100vh;
-    color: var(--white);
+}
+
+.dark a,
+.dark footer {
+    color: var(--white)
 }
 
 /* Light Mode */
 .light {
     background-color: #f0ead6;
-    color: black;
     height: 100vh;
 }
 
-ul {
-    display: inline-flex;
+.light a,
+.light footer {
+    color: black;
 }
 
-.nav-menu {
-    margin-right: 20px;
-}
-
+/* Elements in chronological order */
 header {
     display: inline-flex;
     width: 100%;
@@ -38,14 +55,13 @@ header {
     height: 90px;
 }
 
-#title {
-    margin-left: 40px;
-    font-size: 60px;
+ul {
+    display: inline-flex;
+    align-items: center;
 }
 
-#mode-switch {
-    margin-right: 40px;
-    font-size: 18px;
+a {
+    text-decoration: none;
 }
 
 hr {
@@ -55,6 +71,35 @@ hr {
     color: var(--dark-orange);
     background-color: var(--dark-orange);
     margin-bottom: 35px;
+}
+
+img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+footer {
+    font-size: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 20px;
+    font-family: Fjalla, Arial, Helvetica, sans-serif;
+    line-height: 1.5;
+}
+
+/* classes in chronological order */
+.nav-menu {
+    margin-right: 20px;
+}
+
+.nav-anchor {
+    text-decoration: none;
+    font-size: 25px;
+    font-family: Gobold-Bold, Arial, Helvetica, sans-serif;
 }
 
 .content {
@@ -69,33 +114,51 @@ hr {
     height: auto;
     align-items: center;
     justify-content: center;
+    box-shadow: -20px 20px 13px black;
 }
 
 .right-side {
+    display: flex;
     border: var(--div-border);
     width: 45%;
-    height: auto;
+    height: 0;
+    padding-top: 56.25%; /* 16:9 aspect ratio (9 / 16 * 100) */
+    position: relative;
     align-items: center;
-}
-
-#image-container {
-    width: 100%;
-    height: 100%;
-}
-
-img {
-    object-fit: cover;
-    width: 100%;
-    height: 100%;
-}
-
-footer {
-    font-size: 20px;
-    display: flex;
     justify-content: center;
-    padding-bottom: 20px;
+    box-shadow: -20px 20px 13px black;
 }
 
+/* Keep the images the same size while cycling */
+.right-side img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    overflow: hidden;
+}
+
+.footer-link {
+    text-decoration: underline;
+}
+
+/* ids in chronological order */
+#title {
+    margin-left: 40px;
+    font-size: 80px;
+    font-family: Bebas, Arial, Helvetica, sans-serif;
+}
+
+#mode-switch {
+    margin-right: 40px;
+    font-size: 18px;
+    background-color: rgba(0, 0, 0, 0);
+    border: none;
+}
+
+/* Attempt to animate the cycling images with fade-in and fade-out */
 /* .fade-in {
     animation: img-fade-in 8s linear forwards;
 }
@@ -109,20 +172,11 @@ footer {
     }
 } */
 
+/* Media query for tablet screen size and smaller */
 @media screen and (max-width: 768px) {
+    /* Elements in chronological order */
     header {
         display: inline;
-    }
-
-    #mode-switch {
-        margin-right: 0;
-    }
-
-    #title {
-        display: flex;
-        justify-content: center;
-        margin-left: 0;
-        margin-bottom: 20px;
     }
 
     nav {
@@ -131,15 +185,30 @@ footer {
         justify-content: center;
         margin-bottom: 20px;
     }
+
+    /* ids in chronological order */
+    #title {
+        display: flex;
+        justify-content: center;
+        margin-left: 0;
+        margin-bottom: 20px;
+    }
+    
+    #mode-switch {
+        margin-right: 0;
+    }
 }
 
+/* Media query for small computer screen sizes and smaller */
 @media screen and (max-width: 1024px) {
-    .content {
-        flex-direction: column;
+    /* Elements in chronological order */
+    hr {
         width: 100%;
     }
 
-    hr {
+    /* classes in chronological order */
+    .content {
+        flex-direction: column;
         width: 100%;
     }
 
@@ -154,8 +223,14 @@ footer {
         border: none;
         order: 0;
     }
+
+    .right-side,
+    .left-side {
+        box-shadow: none;
+    }
 }
 
+/* Media query for small computer screen size and larger */
 @media screen and (min-width: 1025px) {
     footer {
         padding-top: 20px;
